@@ -2,6 +2,8 @@ import React from 'react';
 import { Link as GatsbyLink } from 'gatsby'
 import { Box, Button, Flex, Heading, Spacer } from "@chakra-ui/react"
 
+const buttons = ['About', 'Gallery', 'History', 'Events', 'Contact'];
+
 const Navbar = () => (
   <Flex p={6}>
     <Box p="2">
@@ -9,21 +11,15 @@ const Navbar = () => (
     </Box>
     <Spacer />
     <Box>
-      <Button as={GatsbyLink} to="/about" colorScheme="whatsapp" variant="ghost" mr="4">
-        About
-      </Button>
-      <Button colorScheme="whatsapp" variant="ghost" mr="4">
-        Gallery
-      </Button>
-      <Button colorScheme="whatsapp" variant="ghost" mr="4">
-        History
-      </Button>
-      <Button colorScheme="whatsapp" variant="ghost">
-        Events
-      </Button>
-      <Button colorScheme="whatsapp" variant="ghost">
-        Contact
-      </Button>
+      {buttons.map((button) => {
+        return <Button
+          as={GatsbyLink}
+          to={`/${button.toLowerCase()}`} colorScheme="whatsapp"
+          variant="ghost"
+          mr="4">
+          {button}
+        </Button>
+      })}
     </Box>
   </Flex>
 )
