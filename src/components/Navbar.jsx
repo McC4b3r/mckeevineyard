@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link as GatsbyLink } from 'gatsby'
-import { Box, Button, Flex, Heading, Spacer } from "@chakra-ui/react"
+import { Box, Button, Flex, Heading, Spacer } from "@chakra-ui/react";
+import uniqid from 'uniqid';
 
 const buttons = ['About', 'Gallery', 'History', 'Events', 'Contact'];
 
@@ -11,15 +12,16 @@ const Navbar = () => (
     </Box>
     <Spacer />
     <Box>
-      {buttons.map((button) => {
-        return <Button
+      {buttons.map((button, i) => (
+        <Button
           as={GatsbyLink}
           to={`/${button.toLowerCase()}`} colorScheme="whatsapp"
           variant="ghost"
-          mr="4">
+          mr={i === buttons.length - 1 ? "0" : "4"}
+          key={uniqid()}>
           {button}
         </Button>
-      })}
+      ))}
     </Box>
   </Flex>
 )

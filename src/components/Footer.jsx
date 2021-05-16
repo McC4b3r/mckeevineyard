@@ -6,7 +6,7 @@ const Footer = () => {
     <div>
       <Box>
         <Center h="100px">
-          <Text fontsize="sm">
+          <Text fontSize="xs">
             © 2021 The Ranch
           </Text>
         </Center>
