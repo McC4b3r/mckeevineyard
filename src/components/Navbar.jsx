@@ -8,10 +8,15 @@ const buttons = ['About', 'Gallery', 'History', 'Events', 'Contact'];
 const Navbar = () => (
   <Flex p={6}>
     <Box p="2">
-      <Heading size="lg">McKee Vineyard</Heading>
+      <Heading
+        as={GatsbyLink}
+        to={"/"}
+        size="lg">
+        McKee Vineyard
+      </Heading>
     </Box>
     <Spacer />
-    <Box>
+    <Box mt="2">
       {buttons.map((button, i) => (
         <Button
           as={GatsbyLink}
