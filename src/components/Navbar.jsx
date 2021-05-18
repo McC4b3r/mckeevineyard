@@ -2,6 +2,7 @@ import React from 'react';
 import { Link as GatsbyLink } from 'gatsby'
 import { Box, Button, Flex, Heading, Spacer } from "@chakra-ui/react";
 import uniqid from 'uniqid';
+import "../css/main.css";
 
 const buttons = ['About', 'Gallery', 'History', 'Events', 'Contact'];
 
@@ -11,6 +12,7 @@ const Navbar = () => (
       <Heading
         as={GatsbyLink}
         to={"/"}
+        sx={{ "font-family": "KoHo" }}
         size="lg">
         McKee Vineyard
       </Heading>
@@ -23,12 +25,13 @@ const Navbar = () => (
           to={`/${button.toLowerCase()}`} colorScheme="whatsapp"
           variant="ghost"
           mr={i === buttons.length - 1 ? "0" : "4"}
+          sx={{ "font-family": "KoHo" }}
           key={uniqid()}>
           {button}
         </Button>
       ))}
     </Box>
-  </Flex>
+  </Flex >
 )
 
 export default Navbar;

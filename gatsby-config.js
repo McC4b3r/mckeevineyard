@@ -6,5 +6,16 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: ["@chakra-ui/gatsby-plugin"],
+  plugins: [
+    "@chakra-ui/gatsby-plugin",
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `KoHo`,
+        ],
+        display: 'swap'
+      }
+    }
+  ],
 }
