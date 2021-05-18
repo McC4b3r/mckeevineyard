@@ -6,7 +6,9 @@ const Footer = () => {
     <div>
       <Box>
         <Center h="100px">
-          <Text fontSize="xs">
+          <Text
+            fontSize="xs"
+            sx={{ "font-family": "KoHo" }}>
             © 2021 The Ranch
           </Text>
         </Center>

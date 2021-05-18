@@ -1,10 +1,11 @@
 import React from "react"
+import HistoryContent from "../components/HistoryContent"
 import Layout from "../components/Layout"
 
 export default function History() {
   return (
     <Layout>
-      <div>This is the history page</div>
+      <HistoryContent />
     </Layout>
   )
 }

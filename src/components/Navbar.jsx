@@ -2,7 +2,6 @@ import React from 'react';
 import { Link as GatsbyLink } from 'gatsby'
 import { Box, Button, Flex, Heading, Spacer } from "@chakra-ui/react";
 import uniqid from 'uniqid';
-import "../css/main.css";
 
 const buttons = ['About', 'Gallery', 'History', 'Events', 'Contact'];
 
