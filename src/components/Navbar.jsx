@@ -6,12 +6,12 @@ import uniqid from 'uniqid';
 const buttons = ['About', 'Gallery', 'History', 'Events', 'Contact'];
 
 const Navbar = () => (
-  <Flex p={6}>
+  <Flex pb={6}>
     <Box p="2">
       <Heading
         as={GatsbyLink}
         to={"/"}
-        sx={{ "font-family": "KoHo" }}
+        sx={{ "font-family": "Texturina" }}
         size="lg">
         McKee Vineyard
       </Heading>

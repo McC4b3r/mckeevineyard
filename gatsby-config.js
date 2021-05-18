@@ -13,6 +13,7 @@ module.exports = {
       options: {
         fonts: [
           `KoHo`,
+          'Texturina'
         ],
         display: 'swap'
       }

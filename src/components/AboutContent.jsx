@@ -1,8 +1,11 @@
 import React from 'react';
+import { Box } from "@chakra-ui/react"
 
 const AboutContent = () => {
   return (
-    <div>This is the body of the About section</div>
+    <Box mr="2" ml="2" >
+      This is the About Page Content!
+    </Box>
   )
 }
 
