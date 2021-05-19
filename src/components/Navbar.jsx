@@ -5,14 +5,16 @@ import uniqid from 'uniqid';
 
 const buttons = ['About', 'Gallery', 'History', 'Events', 'Contact'];
 
+const headingFont = { "font-family": "Texturina" };
+
 const Navbar = () => (
   <Flex pb={6}>
-    <Box p="2">
+    <Box pl="2" pr="2">
       <Heading
         as={GatsbyLink}
         to={"/"}
-        sx={{ "font-family": "Texturina" }}
-        size="lg">
+        sx={headingFont}
+        size="xl">
         McKee Vineyard
       </Heading>
     </Box>
