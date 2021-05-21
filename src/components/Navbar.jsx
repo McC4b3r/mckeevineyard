@@ -8,7 +8,7 @@ const buttons = ['About', 'Gallery', 'History', 'Events', 'Contact'];
 const headingFont = { "font-family": "Texturina" };
 
 const Navbar = () => (
-  <Flex pb={6}>
+  <Flex pb={4} pt={4}>
     <Box pl="2" pr="2">
       <Heading
         as={GatsbyLink}

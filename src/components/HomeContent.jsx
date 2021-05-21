@@ -1,10 +1,11 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Image } from '@chakra-ui/react';
 import React from 'react';
+import homeImage from '../images/homeImage.jpg'
 
 const HomeContent = () => {
   return (
-    <Box mr="2" ml="2" >
-      This is the Home Page Content!
+    <Box>
+      <Image src={homeImage} />
     </Box>
   )
 }
