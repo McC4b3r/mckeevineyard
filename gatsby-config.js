@@ -8,6 +8,9 @@ module.exports = {
   /* Your site config here */
   plugins: [
     "@chakra-ui/gatsby-plugin",
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
