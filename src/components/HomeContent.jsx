@@ -1,15 +1,15 @@
 import { Box, Center, Image } from '@chakra-ui/react';
+import { StaticImage } from "gatsby-plugin-image"
 import React from 'react';
-import homeImage from '../images/homeImage.jpg'
+// import homeImage from '../images/homeImage.jpg'
 
 const HomeContent = () => {
   return (
     <Box>
       <Center>
-        <Image
-          src={homeImage}
-          objectFit="scale-down"
-          transformOrigin="10" />
+        <StaticImage
+          src="../images/homeImage.jpg"
+          alt="heroImage" />
       </Center>
     </Box>
   )
