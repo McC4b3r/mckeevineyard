@@ -1,10 +1,11 @@
 import React from 'react';
+import { Box } from '@chakra-ui/react';
 
 const HistoryContent = () => {
   return (
-    <div>
+    <Box mr="2" ml="2">
       This is the History content
-    </div>
+    </Box>
   )
 }
 

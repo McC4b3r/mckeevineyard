@@ -1,10 +1,11 @@
 import React from 'react';
+import { Box } from '@chakra-ui/react';
 
 const ContactContent = () => {
   return (
-    <div>
+    <Box mr="2" ml="2">
       This will be the Contact us page content
-    </div>
+    </Box>
   )
 }
 
