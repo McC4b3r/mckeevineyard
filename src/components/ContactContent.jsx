@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Button, Input, FormControl, FormLabel, FormErrorMessage, Center, HStack, Textarea, VStack } from '@chakra-ui/react';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 const ContactContent = () => {
   const validateName = (value) => {
@@ -39,7 +39,12 @@ const ContactContent = () => {
           borderRadius="lg"
           overflow="hidden">
           <Formik
-            initialValues={{ firstName: "", lastName: "" }}
+            initialValues={
+              {
+                firstName: "",
+                lastName: ""
+              }
+            }
             onSubmit={(values, actions) => {
               setTimeout(() => {
                 alert(JSON.stringify(values, null, 2))
@@ -52,49 +57,90 @@ const ContactContent = () => {
                 <HStack
                   spacing="24px"
                   pb={4}>
-                  <Field name="firstName" validate={validateName}>
+                  <Field
+                    name="firstName"
+                    validate={validateName}>
                     {({ field, form }) => (
-                      <FormControl isInvalid={form.errors.name && form.touched.name}>
+                      <FormControl isInvalid={form.error && form.touched.name}>
                         <Center>
-                          <FormLabel htmlFor="firstName">First name</FormLabel>
+                          <FormLabel
+                            htmlFor="firstName">
+                            First name
+                          </FormLabel>
                         </Center>
-                        <Input {...field} id="firstName" placeholder="First Name" />
-                        <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                        <Input
+                          {...field}
+                          id="firstName"
+                          placeholder="First Name" />
+                        <FormErrorMessage
+                          as={ErrorMessage}>
+                          {form.error}
+                        </FormErrorMessage>
                       </FormControl>
                     )}
                   </Field>
-                  <Field name="lastName" validate={validateName}>
+                  <Field
+                    name="lastName"
+                    validate={validateName}>
                     {({ field, form }) => (
                       <FormControl isInvalid={form.errors.name && form.touched.name}>
                         <Center>
-                          <FormLabel htmlFor="lastName">Last name</FormLabel>
+                          <FormLabel
+                            htmlFor="lastName">
+                            Last name
+                          </FormLabel>
                         </Center>
-                        <Input {...field} id="lastName" placeholder="Last Name" />
-                        <FormErrorMessage>{form.error}</FormErrorMessage>
+                        <Input
+                          {...field}
+                          id="lastName"
+                          placeholder="Last Name" />
+                        <FormErrorMessage>
+                          {form.error}
+                        </FormErrorMessage>
                       </FormControl>
                     )}
                   </Field>
                 </HStack>
                 <VStack>
-                  <Field name="email" validate={validateEmail}>
+                  <Field
+                    name="email"
+                    validate={validateEmail}>
                     {({ field, form }) => (
                       <FormControl isInvalid={form.errors.name && form.touched.name}>
                         <Center>
-                          <FormLabel htmlFor="email">Email Address</FormLabel>
+                          <FormLabel
+                            htmlFor="email">
+                            Email Address
+                          </FormLabel>
                         </Center>
-                        <Input {...field} id="email" placeholder="Email Address" />
-                        <FormErrorMessage>{form.error}</FormErrorMessage>
+                        <Input
+                          {...field}
+                          id="email"
+                          placeholder="Email Address" />
+                        <FormErrorMessage>
+                          {form.error}
+                        </FormErrorMessage>
                       </FormControl>
                     )}
                   </Field>
-                  <Field name="message" validate={validateMessage}>
+                  <Field
+                    name="message"
+                    validate={validateMessage}>
                     {({ field, form }) => (
                       <FormControl isInvalid={form.error && form.touched.name}>
                         <Center>
-                          <FormLabel htmlFor="message">Message</FormLabel>
+                          <FormLabel
+                            htmlFor="message">
+                            Message
+                          </FormLabel>
                         </Center>
-                        <Textarea {...field} id="message" placeholder="Message" />
-                        <FormErrorMessage>{form.error}</FormErrorMessage>
+                        <Textarea
+                          {...field}
+                          id="message"
+                          placeholder="Message" />
+                        <FormErrorMessage>
+                          {form.error}
+                        </FormErrorMessage>
                       </FormControl>
                     )}
                   </Field>
