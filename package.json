@@ -18,6 +18,7 @@
     "@chakra-ui/react": "^1.6.1",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
+    "formik": "^2.2.8",
     "framer-motion": "^4.1.16",
     "gatsby": "^3.5.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
