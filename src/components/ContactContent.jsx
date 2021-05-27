@@ -36,13 +36,14 @@ const ContactContent = () => {
   const validateMessage = (value) => {
     let error;
     if (!value) {
-      error = "Can not submit blank message"
+      error = "Cannot submit blank message"
     }
     return error;
   }
 
   return (
-    <Box mr="2" ml="2">
+    <Box
+      pb="300px">
       <VStack>
         <Center
           pb={10}
@@ -80,7 +81,7 @@ const ContactContent = () => {
                   <Grid
                     templateColumns="1fr 1fr"
                     gap={6}
-                    pb={4}>
+                    pb={8}>
                     <Field
                       name="firstName"
                       validate={validateName}>
@@ -123,17 +124,14 @@ const ContactContent = () => {
                       )}
                     </Field>
                   </Grid>
-                  <VStack>
+                  <VStack spacing={8}>
                     <Field
                       name="email"
                       validate={validateEmail}>
                       {({ field, form }) => (
                         <FormControl isInvalid={form.errors.email && form.touched.email}>
-                          <Center>
-                            <FormLabel
-                              htmlFor="email">
-                            </FormLabel>
-                          </Center>
+                          <FormLabel
+                            htmlFor="email" />
                           <Input
                             {...field}
                             id="email"
