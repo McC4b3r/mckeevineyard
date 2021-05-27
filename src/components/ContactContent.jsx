@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Button, Input, FormControl, FormLabel, FormErrorMessage, Center, HStack, Textarea, VStack } from '@chakra-ui/react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 
 const ContactContent = () => {
   const validateName = (value) => {
@@ -13,7 +13,7 @@ const ContactContent = () => {
   const validateEmail = (value) => {
     let error;
     if (!value) {
-      error = "Email can not be blank"
+      error = "Email is required"
     } else if (
       !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)
     ) {
@@ -61,7 +61,7 @@ const ContactContent = () => {
                     name="firstName"
                     validate={validateName}>
                     {({ field, form }) => (
-                      <FormControl isInvalid={form.error && form.touched.name}>
+                      <FormControl isInvalid={form.errors.firstName && form.touched.firstName}>
                         <Center>
                           <FormLabel
                             htmlFor="firstName">
@@ -72,9 +72,8 @@ const ContactContent = () => {
                           {...field}
                           id="firstName"
                           placeholder="First Name" />
-                        <FormErrorMessage
-                          as={ErrorMessage}>
-                          {form.error}
+                        <FormErrorMessage>
+                          {form.errors.firstName}
                         </FormErrorMessage>
                       </FormControl>
                     )}
@@ -83,7 +82,7 @@ const ContactContent = () => {
                     name="lastName"
                     validate={validateName}>
                     {({ field, form }) => (
-                      <FormControl isInvalid={form.errors.name && form.touched.name}>
+                      <FormControl isInvalid={form.errors.lastName && form.touched.lastName}>
                         <Center>
                           <FormLabel
                             htmlFor="lastName">
@@ -95,7 +94,7 @@ const ContactContent = () => {
                           id="lastName"
                           placeholder="Last Name" />
                         <FormErrorMessage>
-                          {form.error}
+                          {form.errors.lastName}
                         </FormErrorMessage>
                       </FormControl>
                     )}
@@ -106,7 +105,7 @@ const ContactContent = () => {
                     name="email"
                     validate={validateEmail}>
                     {({ field, form }) => (
-                      <FormControl isInvalid={form.errors.name && form.touched.name}>
+                      <FormControl isInvalid={form.errors.email && form.touched.email}>
                         <Center>
                           <FormLabel
                             htmlFor="email">
@@ -118,7 +117,7 @@ const ContactContent = () => {
                           id="email"
                           placeholder="Email Address" />
                         <FormErrorMessage>
-                          {form.error}
+                          {form.errors.email}
                         </FormErrorMessage>
                       </FormControl>
                     )}
@@ -127,7 +126,7 @@ const ContactContent = () => {
                     name="message"
                     validate={validateMessage}>
                     {({ field, form }) => (
-                      <FormControl isInvalid={form.error && form.touched.name}>
+                      <FormControl isInvalid={form.errors.message && form.touched.message}>
                         <Center>
                           <FormLabel
                             htmlFor="message">
@@ -139,7 +138,7 @@ const ContactContent = () => {
                           id="message"
                           placeholder="Message" />
                         <FormErrorMessage>
-                          {form.error}
+                          {form.errors.message}
                         </FormErrorMessage>
                       </FormControl>
                     )}
