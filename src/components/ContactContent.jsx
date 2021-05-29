@@ -15,6 +15,7 @@ import {
 import { Formik, Form, Field } from 'formik';
 
 const ContactContent = () => {
+
   const validateName = (value) => {
     let error;
     if (!value) {
@@ -22,6 +23,7 @@ const ContactContent = () => {
     }
     return error;
   }
+
   const validateEmail = (value) => {
     let error;
     if (!value) {
@@ -33,6 +35,7 @@ const ContactContent = () => {
     }
     return error;
   }
+
   const validateMessage = (value) => {
     let error;
     if (!value) {
@@ -43,7 +46,7 @@ const ContactContent = () => {
 
   return (
     <Box
-      pb="300px">
+      pb="250px">
       <VStack>
         <Center
           pb={10}
