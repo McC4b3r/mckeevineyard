@@ -80,7 +80,7 @@ const ContactContent = () => {
               }}
             >
               {(props) => (
-                <Form>
+                <Form method="post" action="https://formspree.io/admin@mckeevineyard.net">
                   <Grid
                     templateColumns="1fr 1fr"
                     gap={6}
@@ -129,7 +129,8 @@ const ContactContent = () => {
                   </Grid>
                   <VStack spacing={8}>
                     <Field
-                      name="email"
+                      name="_replyto"
+                      type="email"
                       validate={validateEmail}>
                       {({ field, form }) => (
                         <FormControl isInvalid={form.errors.email && form.touched.email}>
