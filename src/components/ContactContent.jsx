@@ -51,11 +51,11 @@ const ContactContent = () => {
 
   return (
     <Box
-      pb="250px">
+      pb="200px">
       <VStack>
         <Center
           pb={10}
-          pt={10}>
+          pt={8}>
           <Heading size="2xl">
             Contact Us
             </Heading>

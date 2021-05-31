@@ -1,14 +1,13 @@
 import { Box, Center } from '@chakra-ui/react';
 import { StaticImage } from "gatsby-plugin-image"
 import React from 'react';
-// import homeImage from '../images/homeImage.jpg'
 
 const HomeContent = () => {
   return (
     <Box>
       <Center>
         <StaticImage
-          src="../images/homeImage.jpg"
+          src={"../images/homeImage.jpg"}
           alt="heroImage"
           placeholder="blurred" />
       </Center>
