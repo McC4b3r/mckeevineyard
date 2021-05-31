@@ -81,7 +81,7 @@ const ContactContent = () => {
                 setTimeout(() => {
                   handleSubmit(values);
                   actions.setSubmitting(false)
-                }, 1000)
+                }, 2000)
               }}
             >
               {(props) => (
@@ -99,6 +99,7 @@ const ContactContent = () => {
                           <Center>
                             <FormLabel
                               htmlFor="firstName">
+                              First Name
                             </FormLabel>
                           </Center>
                           <Input
@@ -119,6 +120,7 @@ const ContactContent = () => {
                           <Center>
                             <FormLabel
                               htmlFor="lastName">
+                              Last Name
                             </FormLabel>
                           </Center>
                           <Input
@@ -139,8 +141,12 @@ const ContactContent = () => {
                       validate={validateEmail}>
                       {({ field, form }) => (
                         <FormControl isInvalid={form.errors.email && form.touched.email}>
-                          <FormLabel
-                            htmlFor="email" />
+                          <Center>
+                            <FormLabel
+                              htmlFor="email">
+                              Email
+                              </FormLabel>
+                          </Center>
                           <Input
                             {...field}
                             id="email"
@@ -159,6 +165,7 @@ const ContactContent = () => {
                           <Center>
                             <FormLabel
                               htmlFor="message">
+                              Message
                             </FormLabel>
                           </Center>
                           <Textarea
