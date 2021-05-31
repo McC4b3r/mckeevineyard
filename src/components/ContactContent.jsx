@@ -1,4 +1,5 @@
 import React from 'react';
+import { useForm } from '@formspree/react';
 import {
   Box,
   Button,
@@ -15,6 +16,10 @@ import {
 import { Formik, Form, Field } from 'formik';
 
 const ContactContent = () => {
+  const [state, handleSubmit] = useForm("contact");
+  if (state.succeeded) {
+    return <p>ya dun did it</p>
+  }
 
   const validateName = (value) => {
     let error;
@@ -74,13 +79,13 @@ const ContactContent = () => {
               }
               onSubmit={(values, actions) => {
                 setTimeout(() => {
-                  alert(JSON.stringify(values, null, 2))
+                  handleSubmit(values);
                   actions.setSubmitting(false)
                 }, 1000)
               }}
             >
               {(props) => (
-                <Form method="post" action="https://formspree.io/admin@mckeevineyard.net">
+                <Form>
                   <Grid
                     templateColumns="1fr 1fr"
                     gap={6}
@@ -129,7 +134,7 @@ const ContactContent = () => {
                   </Grid>
                   <VStack spacing={8}>
                     <Field
-                      name="_replyto"
+                      name="email"
                       type="email"
                       validate={validateEmail}>
                       {({ field, form }) => (

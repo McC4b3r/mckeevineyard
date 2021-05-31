@@ -70,3 +70,6 @@ yarn-error.log
 
 # photos
 images/
+
+# formspree key
+formspree.js
