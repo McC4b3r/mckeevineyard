@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
-import { Link as GatsbyLink } from 'gatsby'
-import { Box, Button, Flex, Spacer } from "@chakra-ui/react";
-import uniqid from 'uniqid';
+import { Spacer } from "@chakra-ui/react";
 import Logo from "./Logo";
+import NavBarContainer from "./NavBarContainer";
 import MenuLinks from "./MenuLInks";
+import MenuToggle from './MenuToggle';
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <Flex
-      pb={8}
-      pl={4}
-      pr={4}
-      pt={4}>
+    <NavBarContainer
+      // pb={8}
+      // pl={4}
+      // pr={4}
+      // pt={4}
+      {...props}>
       <Logo />
       <Spacer />
-      <MenuLinks />
-    </Flex >
+      <MenuToggle toggle={toggle} isOpen={isOpen} />
+      <MenuLinks isOpen={isOpen} />
+    </NavBarContainer >
   )
 }
 
