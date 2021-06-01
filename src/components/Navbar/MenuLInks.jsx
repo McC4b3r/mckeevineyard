@@ -1,24 +1,12 @@
-import React from 'react';
-import { Link as GatsbyLink } from 'gatsby'
-import { Box, Button, Flex, Heading, Spacer } from "@chakra-ui/react";
+import React from "react";
+import { Box, Button } from "@chakra-ui/react";
+import { Link as GatsbyLink } from "gatsby";
 import uniqid from 'uniqid';
 
 const buttons = ['About', 'Gallery', 'History', 'Events', 'Contact'];
 
-const headingFont = { "font-family": "Texturina" };
-
-const Navbar = () => (
-  <Flex p={8}>
-    <Box pl="2" pr="2">
-      <Heading
-        as={GatsbyLink}
-        to={"/"}
-        sx={headingFont}
-        size="xl">
-        McKee Vineyard
-      </Heading>
-    </Box>
-    <Spacer />
+const MenuLinks = () => {
+  return (
     <Box mt="2">
       {buttons.map((button, i) => (
         <Button
@@ -32,7 +20,7 @@ const Navbar = () => (
         </Button>
       ))}
     </Box>
-  </Flex >
-)
+  )
+}
 
-export default Navbar;
+export default MenuLinks;
