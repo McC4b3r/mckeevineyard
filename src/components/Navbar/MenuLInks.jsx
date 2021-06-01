@@ -12,7 +12,7 @@ const MenuLinks = ({ isOpen }) => {
       display={{ base: isOpen ? "block" : "none", md: "block" }}
       flexBasis={{ base: "100%", md: "auto" }}>
       <Stack
-        spacing={8}
+        spacing={2}
         align="center"
         justify={["center", "space-between", "flex-end", "flex-end"]}
         direction={["column", "row", "row", "row"]}
@@ -22,7 +22,6 @@ const MenuLinks = ({ isOpen }) => {
             as={GatsbyLink}
             to={`/${button.toLowerCase()}`} colorScheme="whatsapp"
             variant="ghost"
-            mr={i === buttons.length - 1 ? "0" : "4"}
             sx={{ "font-family": "KoHo" }}
             key={uniqid()}>
             {button}

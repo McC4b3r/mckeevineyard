@@ -11,12 +11,7 @@ const Navbar = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <NavBarContainer
-      // pb={8}
-      // pl={4}
-      // pr={4}
-      // pt={4}
-      {...props}>
+    <NavBarContainer {...props}>
       <Logo />
       <Spacer />
       <MenuToggle toggle={toggle} isOpen={isOpen} />
