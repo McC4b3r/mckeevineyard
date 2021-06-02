@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, Fade } from "@chakra-ui/react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 
 const MenuToggle = ({ toggle, isOpen }) => {
@@ -7,7 +7,18 @@ const MenuToggle = ({ toggle, isOpen }) => {
     <Box
       display={{ base: "block", md: "none" }}
       onClick={toggle}>
-      {isOpen ? <CloseIcon /> : <HamburgerIcon />}
+      {isOpen ?
+        <Fade in={isOpen}>
+          <CloseIcon
+            boxSize={4}
+            mr={1} />
+        </Fade>
+        :
+        <Fade in={!isOpen}>
+          <HamburgerIcon
+            boxSize={6} />
+        </Fade>
+      }
     </Box>
   )
 }
