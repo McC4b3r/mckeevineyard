@@ -1,24 +1,24 @@
 import React from "react";
-import { Box, Fade } from "@chakra-ui/react";
+import { Box, useMediaQuery } from "@chakra-ui/react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 
 const MenuToggle = ({ toggle, isOpen }) => {
+  const [isDesktop] = useMediaQuery("(min-width: 768px")
+
   return (
-    <Box
-      display={{ base: "block", md: "none" }}
-      onClick={toggle}>
-      {isOpen ?
-        <Fade in={isOpen}>
+    <Box>
+      {isDesktop ? null : <Box
+        display={{ base: "block", md: "none" }}
+        onClick={toggle}>
+        {isOpen ?
           <CloseIcon
             boxSize={4}
             mr={1} />
-        </Fade>
-        :
-        <Fade in={!isOpen}>
+          :
           <HamburgerIcon
             boxSize={6} />
-        </Fade>
-      }
+        }
+      </Box>}
     </Box>
   )
 }

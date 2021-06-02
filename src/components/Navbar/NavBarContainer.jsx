@@ -13,8 +13,7 @@ const NavBarContainer = ({ children, ...props }) => {
       p={4}
       bg={["primary.500", "primary.500", "transparent", "transparent"]}
       // color={["white", "white", "primary.700", "primary.700"]}
-      {...props}
-    >
+      {...props} >
       {children}
     </Flex>
   )

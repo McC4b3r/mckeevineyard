@@ -1,8 +1,6 @@
 import React from "react";
 import {
   Box,
-  Button,
-  Stack,
   Collapse,
   useMediaQuery,
 } from "@chakra-ui/react";
