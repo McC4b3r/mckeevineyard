@@ -7,18 +7,19 @@ const MenuToggle = ({ toggle, isOpen }) => {
 
   return (
     <Box>
-      {isDesktop ? null : <Box
-        display={{ base: "block", md: "none" }}
-        onClick={toggle}>
-        {isOpen ?
-          <CloseIcon
-            boxSize={4}
-            mr={1} />
-          :
-          <HamburgerIcon
-            boxSize={6} />
-        }
-      </Box>}
+      {isDesktop ? null :
+        <Box
+          display={{ base: "block", md: "none" }}
+          onClick={toggle}>
+          {isOpen ?
+            <CloseIcon
+              boxSize={4}
+              mr={1} />
+            :
+            <HamburgerIcon
+              boxSize={6} />
+          }
+        </Box>}
     </Box>
   )
 }
