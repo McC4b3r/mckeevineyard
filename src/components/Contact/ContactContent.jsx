@@ -10,8 +10,7 @@ import ContactForm from "./ContactForm";
 const ContactContent = () => {
 
   return (
-    <Box
-      pb="200px">
+    <Box>
       <VStack>
         <Center
           pb={10}

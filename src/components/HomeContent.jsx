@@ -4,7 +4,7 @@ import React from 'react';
 
 const HomeContent = () => {
   return (
-    <Box>
+    <Box >
       <Center>
         <StaticImage
           src={"../images/homeImage.jpg"}
