@@ -1,19 +1,20 @@
-import { Box, Center, Image } from '@chakra-ui/react';
-// import { StaticImage } from "gatsby-plugin-image"
 import React from 'react';
-import homeImage from '../images/homeImage.jpg';
+import { Box, Center } from '@chakra-ui/react';
+import { StaticImage } from "gatsby-plugin-image"
 
 const HomeContent = () => {
   return (
     <Box >
       <Center>
-        <Image
-          src={homeImage}
-          alt="heroImage"
-          pos="relative"
-          minH="100vh"
+        <StaticImage
+          src="../images/homeImage.jpg"
+          alt="Hero Image"
+          loading="eager"
+          placeholder="blurred"
           objectFit="cover"
-        // placeholder="blurred"
+          style={{
+            "minHeight": "100vh"
+          }}
         />
       </Center>
     </Box>
