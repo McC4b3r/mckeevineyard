@@ -6,7 +6,7 @@ const HomeContent = () => {
   return (
     <Box >
       <Center>
-        <Grid templateColumns="1/1">
+        <Grid>
           <StaticImage
             src="../images/homeImage.jpg"
             alt="Hero Image"
@@ -18,7 +18,7 @@ const HomeContent = () => {
               "gridArea": "1/1"
             }}
           />
-          <Heading>
+          <Heading gridArea="1/1" display="grid" pos="fixed" color="whitesmoke">
             Welcome to Mckee Vineyard!
           </Heading>
         </Grid>
