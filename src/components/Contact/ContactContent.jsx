@@ -11,7 +11,8 @@ const ContactContent = () => {
 
   return (
     <Box>
-      <VStack>
+      <VStack
+        minH="80vh">
         <Center
           pb={10}
           pt={8}>
