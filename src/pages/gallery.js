@@ -9,3 +9,5 @@ export default function Gallery() {
     </Layout>
   )
 }
+
+//how will they know?
