@@ -1,7 +1,11 @@
 import React from "react";
+import { Box } from '@chakra-ui/react';
 
-export const RanchPic = () => {
-  <div>
-    i'm a picture look at me
-  </div>
-}
+const RanchPic = ({ url }) => (
+
+  <Box boxSize="sm">
+    {url}
+  </Box>
+)
+
+export default RanchPic
