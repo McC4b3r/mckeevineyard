@@ -1,1 +1,1 @@
-export const cloudfrontLinks = [];
+export const fileNames = [];
