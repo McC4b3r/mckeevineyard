@@ -1,10 +1,10 @@
 import React from "react";
 import { Box } from '@chakra-ui/react';
+// import { GatsbyImage } from "gatsby-plugin-image"
 
 const RanchPic = ({ url }) => (
-
   <Box boxSize="sm">
-    {url}
+    FUCK
   </Box>
 )
 
