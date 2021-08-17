@@ -1,17 +1,24 @@
 import React from "react";
-import { Box } from '@chakra-ui/react';
+import { WrapItem } from '@chakra-ui/react';
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-const RanchPic = ({ node }) => {
+const RanchPic = ({ onOpen, node, handleClick }) => {
   const pic = getImage(node);
-  console.log(node);
+  const { id } = node.childImageSharp;
+
   return (
-    <Box boxSize="sm">
+    <WrapItem
+      pl={2}
+      pr={2}
+      pb={1}
+      maxW="xl">
       <GatsbyImage
+        onClick={handleClick}
         image={pic}
-        alt="ranch"
+        alt=""
+        id={id}
       />
-    </Box>
+    </WrapItem>
   )
 }
 

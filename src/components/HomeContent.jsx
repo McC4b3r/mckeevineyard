@@ -8,7 +8,7 @@ const HomeContent = () => {
       <Center>
         <Grid>
           <StaticImage
-            src="../images/homeImage.jpg"
+            src="../images/homeImage.JPG"
             alt="Hero Image"
             loading="eager"
             placeholder="blurred"
