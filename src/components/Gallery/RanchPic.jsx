@@ -8,10 +8,11 @@ const RanchPic = ({ onOpen, node, handleClick }) => {
 
   return (
     <WrapItem
-      pl={2}
-      pr={2}
+      pl={1}
+      pr={1}
       pb={1}
-      maxW="xl">
+      maxW="72"
+      borderRadius="sm">
       <GatsbyImage
         onClick={handleClick}
         image={pic}

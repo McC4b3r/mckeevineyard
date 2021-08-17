@@ -11,6 +11,8 @@ import Carousel from './Carousel';
 
 const GalleryContent = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [currentClicked, setCurrentClicked] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [pics, setPics] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -34,30 +36,50 @@ const GalleryContent = () => {
 
   // console.log(pics[0].childImageSharp.id);
   const findPhoto = (ref) => {
-    pics.forEach((pic) => {
+    pics.forEach((pic, i) => {
       let { id } = pic.childImageSharp;
       if (id === ref) {
-        return pic;
+        setCurrentClicked(pic);
+        setCurrentIndex(i);
+        return;
       }
     })
+    return;
   };
 
-  let picRef;
+  const handleNext = () => {
+    if (currentIndex === pics.length - 1) {
+      setCurrentClicked(pics[0]);
+      setCurrentIndex(0);
+    } else {
+      setCurrentClicked(pics[currentIndex + 1]);
+      setCurrentIndex(currentIndex + 1);
+    }
+  }
+
+  const handlePrev = () => {
+    if (currentIndex === 0) {
+      setCurrentClicked(pics[pics.length - 1]);
+      setCurrentIndex(pics.length - 1);
+    } else {
+      setCurrentClicked(pics[currentIndex - 1]);
+      setCurrentIndex(currentIndex - 1)
+    }
+  }
 
   const handleClick = (e) => {
     let currentRef = e.target.id;
-    console.log(currentRef);
+    findPhoto(currentRef);
+    onOpen();
   }
 
   return (
     <>
       <Wrap
-        bg="red.100"
         pt={4}
         justify="center"
-        overflowY="hidden">
+        overflow="hidden">
         {pics.map((pic) => {
-          picRef = findPhoto(pic.childImageSharp.id);
           return (
             <RanchPic
               handleClick={handleClick}
@@ -71,7 +93,9 @@ const GalleryContent = () => {
         isOpen={isOpen}
         onOpen={onOpen}
         onClose={onClose}
-        pic={picRef} />
+        pic={currentClicked}
+        handleNext={handleNext}
+        handlePrev={handlePrev} />
     </>
   )
 }
