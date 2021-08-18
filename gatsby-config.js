@@ -23,7 +23,8 @@ module.exports = {
       options: {
         fonts: [
           `KoHo`,
-          'Texturina'
+          'Texturina',
+          'IBM Plex Sans'
         ],
         display: 'swap'
       }
