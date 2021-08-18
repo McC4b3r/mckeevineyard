@@ -1,5 +1,9 @@
 import React from "react";
-import { WrapItem } from '@chakra-ui/react';
+import {
+  WrapItem,
+  Box,
+  Center
+} from '@chakra-ui/react';
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const RanchPic = ({ onOpen, node, handleClick }) => {
@@ -8,12 +12,16 @@ const RanchPic = ({ onOpen, node, handleClick }) => {
 
   return (
     <WrapItem
-      pl={1}
-      pr={1}
-      pb={1}
+      boxShadow="md"
       maxW="72"
-      borderRadius="sm">
-      <GatsbyImage
+      margin="0 auto"
+      overflow="hidden"
+      borderRadius="md">
+      <Box as={GatsbyImage}
+        borderRadius="md"
+        cursor="pointer"
+        transition="0.3s"
+        _hover={{ opacity: '90%', transform: 'scale(1.05)' }}
         onClick={handleClick}
         image={pic}
         alt=""

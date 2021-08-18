@@ -27,7 +27,8 @@ const Carousel = ({
       size='6xl'
       isOpen={isOpen}
       onClose={onClose}
-      motionPreset="scale" >
+      isCentered
+      motionPreset="slideInBottom" >
       <ModalOverlay overflow='hidden' />
       <ModalContent >
         <ModalHeader>Expanded Photo</ModalHeader>
@@ -37,7 +38,7 @@ const Carousel = ({
             <Button onClick={handlePrev} zIndex="1" >
               <ArrowLeftIcon />
             </Button>
-            <GatsbyImage image={modalPic} alt="" />
+            <GatsbyImage loading="eager" image={modalPic} alt="" />
             <Button onClick={handleNext} zIndex="1">
               <ArrowRightIcon />
             </Button>

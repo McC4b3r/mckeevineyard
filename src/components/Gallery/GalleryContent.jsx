@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import {
   Wrap,
   useDisclosure,
+  Box,
+  Center,
 } from '@chakra-ui/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import RanchPic from './RanchPic';
@@ -34,7 +36,6 @@ const GalleryContent = () => {
     setLoading(!loading);
   }
 
-  // console.log(pics[0].childImageSharp.id);
   const findPhoto = (ref) => {
     pics.forEach((pic, i) => {
       let { id } = pic.childImageSharp;
@@ -75,20 +76,24 @@ const GalleryContent = () => {
 
   return (
     <>
-      <Wrap
-        pt={4}
-        justify="center"
-        overflow="hidden">
-        {pics.map((pic) => {
-          return (
-            <RanchPic
-              handleClick={handleClick}
-              node={pic}
-              onOpen={onOpen}
-              key={pic.id} />
-          )
-        })}
-      </Wrap>
+      <Center>
+        <Box maxWidth="1200px" >
+          <Wrap
+            pt={4}
+            justify="center"
+            overflow="hidden">
+            {pics.map((pic) => {
+              return (
+                <RanchPic
+                  handleClick={handleClick}
+                  node={pic}
+                  onOpen={onOpen}
+                  key={pic.id} />
+              )
+            })}
+          </Wrap>
+        </Box>
+      </Center>
       <Carousel
         isOpen={isOpen}
         onOpen={onOpen}
