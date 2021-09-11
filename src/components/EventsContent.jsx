@@ -5,7 +5,7 @@ const EventsContent = () => {
 
   return (
     <Box mr="2" ml="2">
-      This is the content of the Events page
+      This is the Events page! Content coming soon!
     </Box>
   )
 }

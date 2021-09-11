@@ -95,9 +95,9 @@ const GalleryContent = () => {
         </Box>
       </Center>
       <Carousel
-        isOpen={isOpen}
-        onOpen={onOpen}
-        onClose={onClose}
+        isOpenModal={isOpen}
+        onOpenModal={onOpen}
+        onCloseModal={onClose}
         pic={currentClicked}
         handleNext={handleNext}
         handlePrev={handlePrev} />

@@ -17,20 +17,20 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Fullsize from "./Fullsize";
 
 const Carousel = ({
-  isOpen,
-  onClose,
+  isOpenModal,
+  onCloseModal,
   pic,
   handleNext,
   handlePrev
 }) => {
   const modalPic = getImage(pic);
 
-
   const {
     isOpen: isOpenFull,
     onOpen: onOpenFull,
     onClose: onCloseFull
   } = useDisclosure();
+
 
   const handlePicClick = () => {
     onOpenFull();
@@ -40,8 +40,8 @@ const Carousel = ({
     <>
       <Modal
         size='6xl'
-        isOpen={isOpen}
-        onClose={onClose}
+        isOpen={isOpenModal}
+        onClose={onCloseModal}
         isCentered
         motionPreset="slideInBottom" >
         <ModalOverlay overflow='hidden' />
@@ -58,7 +58,7 @@ const Carousel = ({
                 loading="eager"
                 // cursor="zoom-in"
                 image={modalPic}
-                onClick={handlePicClick}
+                onClick={() => handlePicClick()}
                 alt="" />
               <Button
                 onClick={handleNext}

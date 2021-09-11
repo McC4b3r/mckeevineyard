@@ -4,7 +4,7 @@ import { Box } from '@chakra-ui/react';
 const HistoryContent = () => {
   return (
     <Box mr="2" ml="2">
-      This is the History content
+      This is the History page! Content coming soon!
     </Box>
   )
 }

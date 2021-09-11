@@ -2,7 +2,7 @@ import React from "react";
 import { Link as GatsbyLink } from 'gatsby';
 import { Box, Heading } from "@chakra-ui/react";
 
-const headingFont = { "font-family": "IBM Plex Sans" };
+const headingFont = { "fontFamily": "IBM Plex Sans" };
 
 const Logo = () => {
   return (
