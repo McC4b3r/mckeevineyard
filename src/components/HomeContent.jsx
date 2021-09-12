@@ -29,7 +29,7 @@ const HomeContent = () => {
     <BgImage
       image={pluginImage}
       style={{
-        'minHeight': "90vh",
+        'minHeight': "100vh",
         'width': '100%'
       }}>
       <Box >
