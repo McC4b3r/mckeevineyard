@@ -3,19 +3,19 @@ import { Box, Center, Heading } from '@chakra-ui/react';
 import { graphql, useStaticQuery } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import { BgImage } from "gbimage-bridge";
+// import BackgroundImage from 'gatsby-background-image';
 
 const HomeContent = () => {
 
-  const { heroImage } = useStaticQuery(graphql`
-    query {
-      heroImage: file(relativePath: {eq: "DSC_0499.JPG"}) {
-        childrenImageSharp {
-          gatsbyImageData(
-            width: 2000
-            placeholder: BLURRED
-            quality: 50
-            webpOptions: {quality: 70}
-            )
+  const { heroImage } = useStaticQuery(
+    graphql`
+      query {
+        heroImage: file(relativePath: {eq: "DSC_0499.JPG"}) {
+          childImageSharp {
+            gatsbyImageData(
+              width: 2000,
+              quality: 50,
+              webpOptions: {quality: 70})
           }
         }
       }
@@ -28,7 +28,8 @@ const HomeContent = () => {
     <BgImage
       image={pluginImage}
       style={{
-        'min-height': "100vh"
+        'minHeight': "100vh",
+        'width': '100%',
       }}>
       <Box >
         <Center>
