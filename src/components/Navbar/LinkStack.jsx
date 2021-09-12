@@ -1,6 +1,6 @@
 import React from "react";
 import { Stack, Button } from "@chakra-ui/react";
-import { Link as GatsbyLink } from "gatsby";
+import { Link } from "gatsby";
 import uniqid from 'uniqid';
 
 const buttons = ['About', 'Gallery', 'History', 'Events', 'Contact'];
@@ -15,7 +15,7 @@ const LinkStack = () => {
       pt={[4, 4, 0, 0]}>
       {buttons.map((button, i) => (
         <Button
-          as={GatsbyLink}
+          as={Link}
           to={`/${button.toLowerCase()}`} colorScheme="whatsapp"
           variant="ghost"
           sx={{ "fontFamily": "KoHo" }}

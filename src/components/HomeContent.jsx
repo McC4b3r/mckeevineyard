@@ -37,6 +37,8 @@ const HomeContent = () => {
           pt={12}>
           <Heading
             color="white"
+            pl="4"
+            pr="4"
             textShadow="#3f3e3e57 3px 3px 3px"
             sx={headingFont}
             size="3xl">
