@@ -26,7 +26,10 @@ const HomeContent = () => {
 
   return (
     <BgImage
-      image={pluginImage}>
+      image={pluginImage}
+      style={{
+        'min-height': "100vh"
+      }}>
       <Box >
         <Center>
           <Heading
