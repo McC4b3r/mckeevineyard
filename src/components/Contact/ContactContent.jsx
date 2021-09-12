@@ -9,7 +9,7 @@ import ContactForm from "./ContactForm";
 
 const ContactContent = () => {
 
-  const headingFont = { "font-family": "IBM Plex Sans" }
+  const headingFont = { "fontFamily": "IBM Plex Sans" }
 
   return (
     <Box>

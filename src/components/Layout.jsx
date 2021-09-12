@@ -5,9 +5,7 @@ import Navbar from './Navbar/Navbar';
 
 const Layout = ({ children }) => {
   return (
-    <Box
-    // bgGradient="linear(to-r, #0f0f0f,#0f18c2)"
-    >
+    <Box >
       <Navbar />
       {children}
       <Footer />

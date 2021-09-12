@@ -8,8 +8,6 @@ import {
 import { graphql, useStaticQuery } from 'gatsby';
 import RanchPic from './RanchPic';
 import Carousel from './Carousel';
-// import Carousel from './Carousel';
-
 
 const GalleryContent = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

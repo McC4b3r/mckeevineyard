@@ -10,7 +10,7 @@ const LinkStack = () => {
     <Stack
       spacing={[0, 0, 2, 2]}
       align="center"
-      justify={["center", "space-between", "flex-end", "flex-end"]}
+      justify={["center", "spaceBetween", "flexEnd", "flexEnd"]}
       direction={["column", "row", "row", "row"]}
       pt={[4, 4, 0, 0]}>
       {buttons.map((button, i) => (
@@ -18,7 +18,7 @@ const LinkStack = () => {
           as={GatsbyLink}
           to={`/${button.toLowerCase()}`} colorScheme="whatsapp"
           variant="ghost"
-          sx={{ "font-family": "KoHo" }}
+          sx={{ "fontFamily": "KoHo" }}
           key={uniqid()}>
           {button}
         </Button>

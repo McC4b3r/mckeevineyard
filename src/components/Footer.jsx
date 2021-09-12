@@ -8,7 +8,7 @@ const Footer = () => {
         <Center h="100px">
           <Text
             fontSize="xs"
-            sx={{ "font-family": "KoHo" }}>
+            sx={{ "fontFamily": "KoHo" }}>
             © 2021 The Ranch
           </Text>
         </Center>
