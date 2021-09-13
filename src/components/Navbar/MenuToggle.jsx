@@ -3,11 +3,11 @@ import { Box, useMediaQuery } from "@chakra-ui/react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 
 const MenuToggle = ({ toggle, isOpen }) => {
-  const [isDesktop] = useMediaQuery("(min-width: 768px")
+  const [isItDesktop] = useMediaQuery("(min-width: 768px")
 
   return (
     <Box>
-      {isDesktop ? <CloseIcon /> :
+      {isItDesktop ? null :
         <Box
           display={{ base: "block", md: "none" }}
           onClick={toggle}>
