@@ -1,19 +1,25 @@
 import React from 'react';
-import { Spacer, useDisclosure, } from "@chakra-ui/react";
+import { Spacer, useDisclosure, useMediaQuery } from "@chakra-ui/react";
 import Logo from "./Logo";
 import NavBarContainer from "./NavBarContainer";
 import MenuLinks from "./MenuLInks";
 import MenuToggle from './MenuToggle';
 
 const Navbar = (props) => {
-  const { isOpen, onToggle } = useDisclosure()
+  const { isOpen, onToggle } = useDisclosure();
+  const [isDesktop] = useMediaQuery("(min-width: 768px")
 
   return (
     <NavBarContainer {...props}>
       <Logo />
       <Spacer />
-      <MenuToggle toggle={onToggle} isOpen={isOpen} />
-      <MenuLinks isOpen={isOpen} />
+      <MenuToggle
+        toggle={onToggle}
+        isOpen={isOpen}
+        isDesktop={isDesktop} />
+      <MenuLinks
+        isOpen={isOpen}
+        isDesktop={isDesktop} />
     </NavBarContainer >
   )
 }

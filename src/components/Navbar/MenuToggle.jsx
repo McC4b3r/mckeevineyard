@@ -2,8 +2,8 @@ import React from "react";
 import { Box, useMediaQuery } from "@chakra-ui/react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 
-const MenuToggle = ({ toggle, isOpen }) => {
-  const [isItDesktop] = useMediaQuery("(min-width: 768px")
+const MenuToggle = ({ toggle, isOpen, isItDesktop }) => {
+  // const [isItDesktop] = useMediaQuery("(min-width: 768px")
 
   return (
     <Box>

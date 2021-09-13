@@ -6,8 +6,8 @@ import {
 } from "@chakra-ui/react";
 import LinkStack from "./LinkStack";
 
-const MenuLinks = ({ isOpen }) => {
-  const [isDesktop] = useMediaQuery("(min-width: 768px)")
+const MenuLinks = ({ isOpen, isDesktop }) => {
+  // const [isDesktop] = useMediaQuery("(min-width: 768px)")
 
   return (
     <Box
