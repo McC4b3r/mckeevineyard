@@ -7,7 +7,7 @@ const MenuToggle = ({ toggle, isOpen }) => {
 
   return (
     <Box>
-      {isDesktop ? null :
+      {isDesktop ? <CloseIcon /> :
         <Box
           display={{ base: "block", md: "none" }}
           onClick={toggle}>
