@@ -2,7 +2,6 @@ import React from "react";
 import {
   Box,
   Collapse,
-  useMediaQuery,
 } from "@chakra-ui/react";
 import LinkStack from "./LinkStack";
 

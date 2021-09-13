@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, useMediaQuery } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 
 const MenuToggle = ({ toggle, isOpen, isItDesktop }) => {
