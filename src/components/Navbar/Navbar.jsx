@@ -7,7 +7,7 @@ import MenuToggle from './MenuToggle';
 
 const Navbar = (props) => {
   const { isOpen, onToggle } = useDisclosure();
-  const [isDesktop] = useMediaQuery("(min-width: 768px")
+  const [isDesktop] = useMediaQuery("(min-width: 768px)")
 
   return (
     <NavBarContainer {...props}>
