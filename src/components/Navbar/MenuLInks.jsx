@@ -6,7 +6,6 @@ import {
 import LinkStack from "./LinkStack";
 
 const MenuLinks = ({ isOpen, isDesktop }) => {
-  // const [isDesktop] = useMediaQuery("(min-width: 768px)")
 
   return (
     <Box
