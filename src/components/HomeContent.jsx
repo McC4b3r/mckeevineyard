@@ -16,6 +16,7 @@ const HomeContent = () => {
             gatsbyImageData(
               width: 2000,
               quality: 50,
+              placeholder: BLURRED,
               webpOptions: {quality: 70})
           }
         }
