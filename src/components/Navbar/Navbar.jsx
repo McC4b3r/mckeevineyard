@@ -32,17 +32,9 @@ const Navbar = (props) => {
     :
     (
       <NavBarContainer {...props}>
-        <Logo />
-        <Spacer />
-        <MenuToggle
-          toggle={onToggle}
-          isOpen={isOpen}
-          isDesktop={isDesktop} />
-        <MenuLinks
-          isOpen={isOpen}
-          isDesktop={isDesktop} />
+
       </NavBarContainer >
-    );
+    )
 }
 
 export default Navbar;
