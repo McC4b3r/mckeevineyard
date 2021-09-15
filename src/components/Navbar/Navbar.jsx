@@ -14,10 +14,8 @@ const Navbar = (props) => {
     setIsLoaded(true)
   }, [])
 
-  if (isLoaded === false) {
-    return null;
-  } else {
-    return (
+  return isLoaded ?
+    (
       <NavBarContainer {...props}>
         <Logo />
         <Spacer />
@@ -30,8 +28,18 @@ const Navbar = (props) => {
           isDesktop={isDesktop} />
       </NavBarContainer >
     )
-  }
-
+    :
+    (<NavBarContainer {...props}>
+      <Logo />
+      <Spacer />
+      <MenuToggle
+        toggle={onToggle}
+        isOpen={isOpen}
+        isDesktop={isDesktop} />
+      <MenuLinks
+        isOpen={isOpen}
+        isDesktop={isDesktop} />
+    </NavBarContainer >);
 }
 
 export default Navbar;
