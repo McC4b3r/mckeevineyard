@@ -32,7 +32,8 @@ const Navbar = (props) => {
     :
     (
       <NavBarContainer {...props}>
-
+        <Logo />
+        <Spacer />
       </NavBarContainer >
     )
 }
