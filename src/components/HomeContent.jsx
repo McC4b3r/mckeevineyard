@@ -43,7 +43,7 @@ const HomeContent = () => {
             textShadow="#3f3e3e57 3px 3px 3px"
             sx={headingFont}
             size="3xl">
-            Welcome to Mckee Vineyard!
+            Welcome to McKee Vineyard!
           </Heading>
         </Center>
       </Box >
