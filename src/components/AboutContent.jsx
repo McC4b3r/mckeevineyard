@@ -4,12 +4,6 @@ import { StaticImage } from "gatsby-plugin-image";
 
 const AboutContent = () => {
 
-  // const wellPic = () => (
-  //   <Box>
-  //     <StaticImage src="../src/images/historyPics/2019RanchHouse1.jpg" />
-  //   </Box>
-  // )
-
   const headingFont = { "fontFamily": "IBM Plex Sans" };
   const textFont = { "fontFamily": "Ubuntu" }
 
@@ -56,28 +50,36 @@ const AboutContent = () => {
       style={{
         'minHeight': "92vh",
       }}>
-      <Box
-        mr="10"
-        ml="10"
-        pt="12" >
-        {heading}
-        <Divider />
-        < br />
-        <Box >
-          {paragraph1}
-          < br />
-          < br />
-          {paragraph2}
-          < br />
-          < br />
-          {paragraph3}
-          < br />
-          < br />
-          <StaticImage src="../src/images/historyPics/2019RanchHouse1.jpg" />
-          {paragraph4}
+      <Center>
+        <Box
+          maxW="4xl"
+          mr="10"
+          ml="10"
+          pt="12" >
+          {heading}
           <Divider />
-        </Box>
-      </Box >
+          < br />
+          <Box >
+            {paragraph1}
+            < br />
+            < br />
+            {paragraph2}
+            < br />
+            < br />
+            {paragraph3}
+            < br />
+            < br />
+            <StaticImage
+              src="/home/mcc4b3/Desktop/projects/theRanch/src/images/historyPics/2019RanchHouse1.png"
+              alt="LuckyWell" />
+            <br />
+            <br />
+            <br />
+            {paragraph4}
+            <Divider />
+          </Box>
+        </Box >
+      </Center>
     </Box>
   )
 }
