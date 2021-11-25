@@ -25,7 +25,8 @@ module.exports = {
         fonts: [
           `KoHo`,
           'Texturina',
-          'IBM Plex Sans'
+          'IBM Plex Sans',
+          'Ubuntu',
         ],
         display: 'swap'
       }
