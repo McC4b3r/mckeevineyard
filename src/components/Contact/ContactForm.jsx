@@ -10,6 +10,7 @@ import {
   Center,
   Textarea,
   VStack,
+  Text,
   Grid,
 } from '@chakra-ui/react';
 import { Formik, Form, Field } from 'formik';
@@ -17,7 +18,7 @@ import { Formik, Form, Field } from 'formik';
 const ContactForm = () => {
   const [state, handleSubmit] = useForm("contact");
   if (state.succeeded) {
-    return <p>ya dun did it</p>
+    return <Text fontSize="lg">Thanks for your submission! We'll get back to you.</Text>
   }
 
   const validateName = (value) => {
@@ -69,7 +70,7 @@ const ContactForm = () => {
           setTimeout(() => {
             handleSubmit(values);
             actions.setSubmitting(false)
-          }, 1500)
+          }, 500)
         }}
       >
         {(props) => (
@@ -88,7 +89,7 @@ const ContactForm = () => {
                       <FormLabel
                         htmlFor="firstName">
                         First Name
-                            </FormLabel>
+                      </FormLabel>
                     </Center>
                     <Input
                       {...field}
@@ -109,7 +110,7 @@ const ContactForm = () => {
                       <FormLabel
                         htmlFor="lastName">
                         Last Name
-                            </FormLabel>
+                      </FormLabel>
                     </Center>
                     <Input
                       {...field}
@@ -133,7 +134,7 @@ const ContactForm = () => {
                       <FormLabel
                         htmlFor="email">
                         Email
-                              </FormLabel>
+                      </FormLabel>
                     </Center>
                     <Input
                       {...field}
@@ -154,7 +155,7 @@ const ContactForm = () => {
                       <FormLabel
                         htmlFor="message">
                         Message
-                            </FormLabel>
+                      </FormLabel>
                     </Center>
                     <Textarea
                       {...field}
@@ -175,7 +176,7 @@ const ContactForm = () => {
                 type="submit"
               >
                 Submit
-                  </Button>
+              </Button>
             </Center>
           </Form>
         )}
