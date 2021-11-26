@@ -70,7 +70,7 @@ const AboutContent = () => {
             < br />
             < br />
             <StaticImage
-              src="/home/mcc4b3/Desktop/projects/theRanch/src/images/historyPics/2019RanchHouse1.png"
+              src="../images/historyPics/2019RanchHouse1.png"
               alt="LuckyWell" />
             <br />
             <br />
