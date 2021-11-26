@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Text, Center, Heading, Divider } from '@chakra-ui/react';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const HistoryContent = () => {
 
@@ -9,7 +10,7 @@ const HistoryContent = () => {
   const heading =
     (<Center pb="3">
       <Heading sx={headingFont}>
-        The Ranch
+        The Ranch's History
       </Heading>
     </Center>)
 
@@ -56,8 +57,43 @@ const HistoryContent = () => {
       'Barbara so loved her Uncle Ray and his beloved ranch that when he died in December 1960, he left it to her.  She ran the ranch until 1990 when I took it over.'
     </Text>
 
+  const pic1 =
+    <Center>
+      <StaticImage
+        src="../images/historyPics/1938RanchHouse1.PNG"
+        alt="1"
+        placeholder="blurred" />
+    </Center>
+
+  const pic2 =
+    <StaticImage
+      src="../images/historyPics/1938RanchHouse2.PNG"
+      alt="2"
+      placeholder="blurred" />
+
+  const pic3 =
+    <StaticImage
+      src="../images/historyPics/1938RanchHouse3.PNG"
+      alt="3"
+      placeholder="blurred" />
+
+  const pic4 =
+    <StaticImage
+      src="../images/historyPics/1938RanchHouse4.PNG"
+      alt="4"
+      placeholder="blurred" />
+
+  const pic5 =
+    <Center>
+      <StaticImage
+        src="../images/historyPics/rayFurlongDinneyJune1939.PNG"
+        alt="Ray"
+        placeholder="blurred" />
+    </Center>
+
   return (
     <Box
+      bgGradient="linear(to-b, white, #fbe8aa)"
       style={{
         'minHeight': "92vh",
       }}>
@@ -70,15 +106,32 @@ const HistoryContent = () => {
           {heading}
           <Divider />
           <br />
+          <br />
           {paragraph1}
+          <br />
+          {pic5}
+          <br />
           <br />
           {paragraph2}
           <br />
+          {pic1}
+          <br />
+          <br />
           {paragraph3}
+          <br />
+          {pic2}
+          <br />
           <br />
           {paragraph4}
           <br />
+          <br />
+          {pic3}
+          <br />
+          <br />
           {paragraph5}
+          <br />
+          {pic4}
+          <br />
           <br />
           {paragraph6}
           <br />
