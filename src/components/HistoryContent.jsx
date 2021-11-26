@@ -54,7 +54,7 @@ const HistoryContent = () => {
     <Text
       fontSize="lg"
       sx={textFont}>
-      'Barbara so loved her Uncle Ray and his beloved ranch that when he died in December 1960, he left it to her.  She ran the ranch until 1990 when I took it over.'
+      Barbara so loved her Uncle Ray and his beloved ranch that when he died in December 1960, he left it to her.  She ran the ranch until 1990 when I took it over.'
     </Text>
 
   const pic1 =
