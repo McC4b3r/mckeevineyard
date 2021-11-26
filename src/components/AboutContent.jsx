@@ -77,6 +77,8 @@ const AboutContent = () => {
             <br />
             {paragraph4}
             <Divider />
+            <br />
+            <br />
           </Box>
         </Box >
       </Center>
