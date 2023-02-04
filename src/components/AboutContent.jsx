@@ -44,6 +44,15 @@ const AboutContent = () => {
       When Ulises Valdez Sr. who designed and planted the vineyard, was looking for a well, he unsuccessfully tried a couple of locations.  In the process he struck up a conversation with our neighbor Bill Ruxton, whose father George was one of Ray’s best friends and hunting partners and bought their adjacent ranch, neighboring Ray’s in 1940, shortly after Ray bought his.  Bill pointed out a couple of other locations Claire had dowsed.  Ulises dug there and found the water that now supplies the vineyard and everything else.  Thereafter, Ulises named it the “Lucky Well Vineyard”.  So far, through several droughts, it has not run dry.
     </Text>
 
+  const paragraph5 =
+    <Text
+      fontSize="lg"
+      sx={textFont}
+      pb="8"
+    >
+      After his untimely death at the age of 47 Ulises's children, most notably Ulises Jr, Elizabeth and Ricardo, have taken over the active management for the Vineyard and their vineyard management business.  In keeping with the family tradition the vineyard has flourished as evidenced by the Arista Winery's Lucky Well Vineyard 2017 Pinot Noir being listed as one of the <Text as='i'>top 100 wines in the world.</Text>
+    </Text>
+
   return (
     <Box
       bgGradient="linear(to-b, white, #bafbaa)"
@@ -71,11 +80,15 @@ const AboutContent = () => {
             < br />
             <StaticImage
               src="../images/historyPics/2019RanchHouse1.png"
-              alt="LuckyWell" />
+              alt="LuckyWell"
+              placeholder="blurred" />
             <br />
             <br />
             <br />
             {paragraph4}
+            <br />
+            <br />
+            {paragraph5}
             <Divider />
             <br />
             <br />
