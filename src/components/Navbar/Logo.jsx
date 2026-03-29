@@ -1,22 +1,11 @@
-import React from "react";
-import { Link as GatsbyLink } from 'gatsby';
-import { Box, Heading } from "@chakra-ui/react";
+import Link from "next/link";
 
-const headingFont = { "fontFamily": "IBM Plex Sans" };
-
-const Logo = () => {
+export default function Logo() {
   return (
-    <Box pl="2" pr="2">
-      <Heading
-        as={GatsbyLink}
-        textShadow="#3f3e3e57 3px 3px 3px"
-        to={"/"}
-        sx={headingFont}
-        size="2xl">
+    <Link href="/" className="px-2">
+      <span className="font-[family-name:var(--font-heading)] text-3xl font-semibold tracking-[-0.03em] text-stone-900 drop-shadow-[0_2px_12px_rgba(255,255,255,0.45)] sm:text-4xl">
         McKee Vineyard
-      </Heading>
-    </Box>
-  )
+      </span>
+    </Link>
+  );
 }
-
-export default Logo;

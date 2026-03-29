@@ -1,41 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { Spacer, useDisclosure, useMediaQuery } from "@chakra-ui/react";
+"use client";
+
+import { useState } from "react";
+import { Sheet, SheetContent } from "@/src/components/ui/sheet";
 import Logo from "./Logo";
 import NavBarContainer from "./NavBarContainer";
 import MenuLinks from "./MenuLInks";
-import MenuToggle from './MenuToggle';
+import MenuToggle from "./MenuToggle";
 
-const Navbar = (props) => {
-  const { isOpen, onToggle } = useDisclosure();
-  const [isDesktop] = useMediaQuery("(min-width: 768px)");
-  const [isLoaded, setIsLoaded] = useState(false);
+export default function Navbar(props) {
+  const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    setIsLoaded(true)
-  }, [])
-
-  //
-  return isLoaded ?
-    (
-      <NavBarContainer {...props}>
-        <Logo />
-        <Spacer />
-        <MenuToggle
-          toggle={onToggle}
-          isOpen={isOpen}
-          isDesktop={isDesktop} />
-        <MenuLinks
-          isOpen={isOpen}
-          isDesktop={isDesktop} />
-      </NavBarContainer >
-    )
-    :
-    (
-      <NavBarContainer {...props}>
-        <Logo />
-        <Spacer />
-      </NavBarContainer >
-    )
+  return (
+    <NavBarContainer {...props}>
+      <Logo />
+      <div className="hidden md:block">
+        <MenuLinks />
+      </div>
+      <MenuToggle onClick={() => setOpen(true)} />
+      <Sheet open={open} onOpenChange={setOpen}>
+        <SheetContent>
+          <MenuLinks mobile onNavigate={() => setOpen(false)} />
+        </SheetContent>
+      </Sheet>
+    </NavBarContainer>
+  );
 }
-
-export default Navbar;

@@ -1,106 +1,40 @@
-import React, { useState } from 'react';
-import {
-  Wrap,
-  useDisclosure,
-  Box,
-  Center,
-} from '@chakra-ui/react';
-import { graphql, useStaticQuery } from 'gatsby';
-import RanchPic from './RanchPic';
-import Carousel from './Carousel';
+"use client";
 
-const GalleryContent = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [currentClicked, setCurrentClicked] = useState('');
+import { useState } from "react";
+import { galleryImages } from "@/src/lib/gallery-images";
+import Carousel from "./Carousel";
+import RanchPic from "./RanchPic";
+
+export default function GalleryContent() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [pics, setPics] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [open, setOpen] = useState(false);
 
-  const data = useStaticQuery(graphql`
-    query {
-      photos: allFile {
-        pics: nodes {
-          childImageSharp {
-            gatsbyImageData(placeholder: BLURRED)
-            id
-          }
-        }
-      }
-    }
-  `)
-
-  if (loading) {
-    setPics(data.photos.pics);
-    setLoading(!loading);
-  }
-
-  const findPhoto = (ref) => {
-    pics.forEach((pic, i) => {
-      let { id } = pic.childImageSharp;
-      if (id === ref) {
-        setCurrentClicked(pic);
-        setCurrentIndex(i);
-        return;
-      }
-    })
-    return;
+  const handleClick = (index) => {
+    setCurrentIndex(index);
+    setOpen(true);
   };
 
-  const handleNext = () => {
-    if (currentIndex === pics.length - 1) {
-      setCurrentClicked(pics[0]);
-      setCurrentIndex(0);
-    } else {
-      setCurrentClicked(pics[currentIndex + 1]);
-      setCurrentIndex(currentIndex + 1);
-    }
-  }
-
-  const handlePrev = () => {
-    if (currentIndex === 0) {
-      setCurrentClicked(pics[pics.length - 1]);
-      setCurrentIndex(pics.length - 1);
-    } else {
-      setCurrentClicked(pics[currentIndex - 1]);
-      setCurrentIndex(currentIndex - 1)
-    }
-  }
-
-  const handleClick = (e) => {
-    let currentRef = e.target.id;
-    findPhoto(currentRef);
-    onOpen();
-  }
-
   return (
-    <>
-      <Center>
-        <Box maxWidth="1200px" >
-          <Wrap
-            pt={4}
-            justify="center"
-            overflow="hidden">
-            {pics.map((pic) => {
-              return (
-                <RanchPic
-                  handleClick={handleClick}
-                  node={pic}
-                  onOpen={onOpen}
-                  key={pic.id} />
-              )
-            })}
-          </Wrap>
-        </Box>
-      </Center>
+    <section className="page-shell py-10 sm:py-14">
+      <div className="mb-8 max-w-2xl">
+        <p className="font-[family-name:var(--font-display)] text-sm uppercase tracking-[0.28em] text-emerald-800">
+          Vineyard gallery
+        </p>
+        <h1 className="mt-4 font-[family-name:var(--font-heading)] text-4xl font-semibold text-stone-900">
+          A visual tour of the ranch
+        </h1>
+      </div>
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {galleryImages.map((image, index) => (
+          <RanchPic key={image.alt} image={image} index={index} onClick={handleClick} />
+        ))}
+      </div>
       <Carousel
-        isOpenModal={isOpen}
-        onOpenModal={onOpen}
-        onCloseModal={onClose}
-        pic={currentClicked}
-        handleNext={handleNext}
-        handlePrev={handlePrev} />
-    </>
-  )
+        isOpen={open}
+        onOpenChange={setOpen}
+        images={galleryImages}
+        initialIndex={currentIndex}
+      />
+    </section>
+  );
 }
-
-export default GalleryContent;

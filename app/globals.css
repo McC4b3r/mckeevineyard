@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-heading: "IBM Plex Sans", "Avenir Next", "Segoe UI", sans-serif;
+    --font-display: "KoHo", "Trebuchet MS", "Segoe UI", sans-serif;
+    --font-body: "Ubuntu", "Helvetica Neue", "Arial", sans-serif;
+    --background: 42 42% 96%;
+    --foreground: 28 18% 16%;
+    --card: 0 0% 100%;
+    --card-foreground: 28 18% 16%;
+    --primary: 109 22% 36%;
+    --primary-foreground: 60 9% 98%;
+    --secondary: 43 48% 91%;
+    --secondary-foreground: 28 18% 16%;
+    --muted: 44 25% 91%;
+    --muted-foreground: 31 10% 40%;
+    --border: 38 24% 84%;
+    --input: 38 24% 84%;
+    --ring: 109 22% 36%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))];
+    background-image:
+      radial-gradient(circle at top left, rgba(233, 228, 204, 0.7), transparent 34%),
+      radial-gradient(circle at top right, rgba(191, 205, 180, 0.24), transparent 28%),
+      linear-gradient(180deg, rgba(255, 255, 252, 0.9), rgba(245, 238, 224, 0.94) 40%, rgba(235, 228, 212, 0.98));
+  }
+}
+
+@layer utilities {
+  .page-shell {
+    @apply mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .paper-panel {
+    @apply rounded-[2rem] border bg-[rgba(255,252,246,0.78)] shadow-[0_26px_70px_-34px_rgba(76,62,33,0.28)] backdrop-blur-xl;
+    border-color: rgba(255, 255, 255, 0.62);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      0 26px 70px -34px rgba(76, 62, 33, 0.28);
+  }
+
+  .retreat-wash {
+    background-image:
+      linear-gradient(180deg, rgba(255,255,255,0.3), transparent 32%),
+      radial-gradient(circle at top, rgba(175, 194, 167, 0.12), transparent 42%);
+  }
+
+  .quiet-reveal {
+    animation: quiet-reveal 600ms ease-out both;
+  }
+}
+
+@keyframes quiet-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
