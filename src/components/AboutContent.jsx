@@ -12,13 +12,13 @@ export default function AboutContent() {
           historic well is the reason for the vineyard designation. Indeed, when Ray Furlong
           purchased the ranch in 1938 the well outside the house was known as having the sweetest
           water in the area and it never went dry. Then again, in 1938 there was no electricity or
-          means to supply the necessities of modern living: indoor plumbing.
+          means to supply the necessities of modern living: Indoor plumbing.
         </p>
         <p>
           One of the first priorities Ray had was finding a location for a more dependable well
           which could meet the needs. The plan was to find a source close by and pump the water to a
           water tower up in the pasture and let the force of gravity flow it downhill to the house.
-          One of Ray&apos;s sisters, Claire, decided to try and dowse for water which produced the two
+          One or Ray&apos;s other sisters, Claire, decided to try and dowse for water which produced the two
           wells close enough to the house and water tower with enough water for what then was one
           house, and later supplied a caretakers house, a guest house and pool as well. At the time
           all the wells were hand dug shallow wells approximately 20 feet deep. They never went dry.
@@ -37,15 +37,8 @@ export default function AboutContent() {
           hunting partners and bought their adjacent ranch, neighboring Ray&apos;s in 1940, shortly
           after Ray bought his. Bill pointed out a couple of other locations Claire had dowsed.
           Ulises dug there and found the water that now supplies the vineyard and everything else.
-          Thereafter, Ulises named it the &quot;Lucky Well Vineyard.&quot; So far, through several droughts,
+          Thereafter, Ulises named it the &ldquo;Lucky Well Vineyard&rdquo;. So far, through several droughts,
           it has not run dry.
-        </p>
-        <p>
-          After his untimely death at the age of 47 Ulises&apos;s children, most notably Ulises Jr,
-          Elizabeth and Ricardo, have taken over the active management for the vineyard and their
-          vineyard management business. In keeping with the family tradition the vineyard has
-          flourished as evidenced by the Arista Winery&apos;s Lucky Well Vineyard 2017 Pinot Noir being
-          listed as one of the <em>top 100 wines in the world.</em>
         </p>
       </div>
     </PageIntro>
