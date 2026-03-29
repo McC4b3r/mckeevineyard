@@ -17,6 +17,35 @@ pnpm build
 
 The local dev server runs at [http://localhost:3000](http://localhost:3000).
 
+## Contentful Gallery
+
+The gallery can now be sourced from Contentful with a local fallback during rollout.
+
+Set these environment variables to enable the Contentful-backed gallery:
+
+```bash
+CONTENTFUL_SPACE_ID=your_space_id
+CONTENTFUL_DELIVERY_TOKEN=your_delivery_token
+CONTENTFUL_ENVIRONMENT=master
+CONTENTFUL_GALLERY_SLUG=main-gallery
+```
+
+Recommended Contentful setup:
+
+- `galleryPage`
+  - `internalName` (`Short text`, required)
+  - `slug` (`Short text`, required, unique)
+  - `images` (`Media`, many, ordered, required)
+
+Create a single `galleryPage` entry with slug `main-gallery`, then upload or select the gallery photos directly in its `images` field. The gallery order on the site follows the order of the assets in that field.
+
+For asset metadata:
+
+- use the asset `Title` as an internal editor-facing name
+- use the asset `Description` as the public alt text consumed by the site
+
+The app still supports the older `galleryImage` wrapper-entry model during transition, but new setup should use direct media assets on `galleryPage`.
+
 ## Structure
 
 - `app/`: Next.js routes and global app shell

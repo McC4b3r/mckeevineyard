@@ -44,7 +44,7 @@ export default function Carousel({ isOpen, onOpenChange, images, initialIndex })
       const targetImage = images[normalizedIndex];
       const promise = new Promise((resolve) => {
         const preloadImage = new window.Image();
-        preloadImage.src = targetImage.modalSrc.src;
+        preloadImage.src = targetImage.modalSrc;
         preloadImage.onload = () => {
           loadedIndicesRef.current.add(normalizedIndex);
           resolve();
@@ -171,10 +171,10 @@ export default function Carousel({ isOpen, onOpenChange, images, initialIndex })
                 <div className="relative h-[min(62vh,720px)] w-full">
                   <img
                     key={visibleIndex}
-                    src={visibleImage.modalSrc.src}
+                    src={visibleImage.modalSrc}
                     alt={visibleImage.alt}
-                    width={visibleImage.modalSrc.width}
-                    height={visibleImage.modalSrc.height}
+                    width={visibleImage.width}
+                    height={visibleImage.height}
                     className="h-full w-full object-contain p-4 sm:p-6"
                     onLoad={() => {
                       loadedIndicesRef.current.add(visibleIndex);
@@ -229,7 +229,8 @@ export default function Carousel({ isOpen, onOpenChange, images, initialIndex })
                       fill
                       sizes="80px"
                       className="object-cover"
-                      placeholder="blur"
+                      placeholder={image.blurSrc ? "blur" : "empty"}
+                      blurDataURL={image.blurSrc}
                     />
                     {isActive ? (
                       <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(5,150,105,0.22))]" />
