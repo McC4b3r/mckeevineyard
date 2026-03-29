@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "d2gryjkdo4kdmg.cloudfront.net",
+        hostname: "images.ctfassets.net",
       },
     ],
   },

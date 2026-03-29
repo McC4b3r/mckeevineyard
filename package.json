@@ -10,7 +10,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "gallery:thumbs": "./scripts/generate-gallery-thumbs.sh",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "test": "echo \"Tests are not set up yet.\" && exit 1"
   },
@@ -28,6 +27,8 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.35",
     "postcss": "^8.5.6",
     "prettier": "2.2.1",
     "tailwindcss": "^3.4.17"

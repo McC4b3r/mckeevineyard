@@ -2,6 +2,7 @@ import Image from "next/image";
 
 export default function RanchPic({ image, index, onClick }) {
   const isHighPriority = index < 4;
+  const hasBlur = Boolean(image.blurSrc);
 
   return (
     <button
@@ -12,8 +13,10 @@ export default function RanchPic({ image, index, onClick }) {
       <Image
         src={image.thumbnailSrc}
         alt={image.alt}
+        fill
         className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-        placeholder="blur"
+        placeholder={hasBlur ? "blur" : "empty"}
+        blurDataURL={image.blurSrc}
         priority={isHighPriority}
         loading={isHighPriority ? "eager" : "lazy"}
         sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, (max-width: 1279px) 33vw, 25vw"
