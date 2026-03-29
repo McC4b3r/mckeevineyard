@@ -1,20 +1,9 @@
-import { Box, Center, Text } from '@chakra-ui/layout';
-import React from 'react';
-
-const Footer = () => {
+export default function Footer() {
   return (
-    <div>
-      <Box>
-        <Center h="100px">
-          <Text
-            fontSize="xs"
-            sx={{ "fontFamily": "KoHo" }}>
-            © 2021 The Ranch
-          </Text>
-        </Center>
-      </Box>
-    </div>
-  )
+    <footer className="page-shell pb-6 pt-10">
+      <p className="text-center font-[family-name:var(--font-display)] text-[11px] uppercase tracking-[0.22em] text-stone-500/90">
+        © 2026 McKee Vineyard. All rights reserved.
+      </p>
+    </footer>
+  );
 }
-
-export default Footer;

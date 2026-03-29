@@ -1,32 +1,24 @@
-import React from "react";
-import {
-  WrapItem,
-  Box,
-} from '@chakra-ui/react';
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Image from "next/image";
 
-const RanchPic = ({ onOpen, node, handleClick }) => {
-  const pic = getImage(node);
-  const { id } = node.childImageSharp;
+export default function RanchPic({ image, index, onClick }) {
+  const isHighPriority = index < 4;
 
   return (
-    <WrapItem
-      boxShadow="md"
-      maxW="72"
-      overflow="hidden"
-      borderRadius="md">
-      <Box as={GatsbyImage}
-        borderRadius="md"
-        cursor="pointer"
-        transition="0.3s"
-        _hover={{ opacity: '90%', transform: 'scale(1.05)' }}
-        onClick={handleClick}
-        image={pic}
-        alt=""
-        id={id}
+    <button
+      type="button"
+      onClick={() => onClick(index)}
+      className="group relative aspect-square overflow-hidden rounded-[1.75rem] border border-white/60 bg-white shadow-[0_20px_50px_-30px_rgba(60,44,18,0.45)] transition duration-300 hover:-translate-y-1"
+    >
+      <Image
+        src={image.thumbnailSrc}
+        alt={image.alt}
+        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+        placeholder="blur"
+        priority={isHighPriority}
+        loading={isHighPriority ? "eager" : "lazy"}
+        sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, (max-width: 1279px) 33vw, 25vw"
       />
-    </WrapItem>
-  )
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(20,16,9,0.18))]" />
+    </button>
+  );
 }
-
-export default RanchPic
