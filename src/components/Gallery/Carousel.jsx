@@ -26,10 +26,14 @@ export default function Carousel({ isOpen, onOpenChange, images, initialIndex })
 
   const imageCount = images.length;
   const visibleImage = images[visibleIndex];
-  const selectedImage = images[selectedIndex];
+  const selectedImage = images[selectedIndex] ?? visibleImage;
 
   const ensureModalImageLoaded = useCallback(
     (index) => {
+      if (imageCount === 0) {
+        return Promise.resolve();
+      }
+
       const normalizedIndex = normalizeIndex(index, imageCount);
 
       if (loadedIndicesRef.current.has(normalizedIndex)) {
@@ -74,6 +78,10 @@ export default function Carousel({ isOpen, onOpenChange, images, initialIndex })
 
   const selectIndex = useCallback(
     async (index) => {
+      if (imageCount === 0) {
+        return;
+      }
+
       const normalizedIndex = normalizeIndex(index, imageCount);
       const transitionId = transitionIdRef.current + 1;
       transitionIdRef.current = transitionId;
@@ -99,7 +107,7 @@ export default function Carousel({ isOpen, onOpenChange, images, initialIndex })
   );
 
   useEffect(() => {
-    if (!isOpen) {
+    if (!isOpen || imageCount === 0) {
       return;
     }
 
@@ -108,16 +116,16 @@ export default function Carousel({ isOpen, onOpenChange, images, initialIndex })
     setPendingIndex(null);
     transitionIdRef.current += 1;
     preloadNeighbors(initialIndex);
-  }, [initialIndex, isOpen, preloadNeighbors]);
+  }, [imageCount, initialIndex, isOpen, preloadNeighbors]);
 
   useEffect(() => {
-    if (!isOpen || !filmstripRef.current) {
+    if (!isOpen || imageCount === 0 || !filmstripRef.current) {
       return;
     }
 
     const activeThumb = filmstripRef.current.querySelector(`[data-index="${selectedIndex}"]`);
     activeThumb?.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
-  }, [isOpen, selectedIndex]);
+  }, [imageCount, isOpen, selectedIndex]);
 
   const loadingLabel = useMemo(() => {
     if (pendingIndex === null) {
@@ -128,6 +136,10 @@ export default function Carousel({ isOpen, onOpenChange, images, initialIndex })
       ? "Loading next photo"
       : "Loading previous photo";
   }, [imageCount, pendingIndex, visibleIndex]);
+
+  if (imageCount === 0 || !visibleImage || !selectedImage) {
+    return null;
+  }
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
@@ -169,6 +181,8 @@ export default function Carousel({ isOpen, onOpenChange, images, initialIndex })
                   <ChevronRight className="h-5 w-5" />
                 </Button>
                 <div className="relative h-[min(62vh,720px)] w-full">
+                  {/* Intentional direct image rendering avoids the modal flash/rescale regression. */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     key={visibleIndex}
                     src={visibleImage.modalSrc}
@@ -213,7 +227,7 @@ export default function Carousel({ isOpen, onOpenChange, images, initialIndex })
 
                 return (
                   <button
-                    key={image.alt}
+                    key={`${image.originalSrc || image.thumbnailSrc}-${index}`}
                     type="button"
                     data-index={index}
                     onClick={() => selectIndex(index)}

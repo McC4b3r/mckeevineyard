@@ -1,5 +1,3 @@
-import { localGalleryImages } from "@/src/lib/gallery-images";
-
 const CONTENTFUL_SPACE_ID = process.env.CONTENTFUL_SPACE_ID;
 const CONTENTFUL_DELIVERY_TOKEN = process.env.CONTENTFUL_DELIVERY_TOKEN;
 const CONTENTFUL_ENVIRONMENT = process.env.CONTENTFUL_ENVIRONMENT || "master";
@@ -68,16 +66,6 @@ function buildNormalizedImage({ asset, alt }) {
   };
 }
 
-function normalizeContentfulGalleryImageEntry(entry, asset, index) {
-  const alt =
-    entry?.fields?.altText?.trim() ||
-    asset?.fields?.description?.trim() ||
-    asset?.fields?.title?.trim() ||
-    `McKee Vineyard gallery image ${index + 1}`;
-
-  return buildNormalizedImage({ asset, alt });
-}
-
 function normalizeContentfulGalleryAsset(asset, index) {
   const alt =
     asset?.fields?.description?.trim() ||
@@ -87,79 +75,66 @@ function normalizeContentfulGalleryAsset(asset, index) {
   return buildNormalizedImage({ asset, alt });
 }
 
-function getFirstAssetId(photoField) {
-  if (Array.isArray(photoField)) {
-    return photoField[0]?.sys?.id;
-  }
-
-  return photoField?.sys?.id;
-}
-
 function mapIncludes(items = []) {
   return new Map(items.map((item) => [item.sys.id, item]));
 }
 
-async function fetchContentfulGalleryImages() {
-  if (!CONTENTFUL_SPACE_ID || !CONTENTFUL_DELIVERY_TOKEN) {
-    return null;
-  }
-
-  const query = new URLSearchParams({
-    content_type: "galleryPage",
-    "fields.slug": CONTENTFUL_GALLERY_SLUG,
-    include: "2",
-    limit: "1",
-  });
-
-  const response = await fetch(
-    `https://cdn.contentful.com/spaces/${CONTENTFUL_SPACE_ID}/environments/${CONTENTFUL_ENVIRONMENT}/entries?${query.toString()}`,
-    {
-      headers: {
-        Authorization: `Bearer ${CONTENTFUL_DELIVERY_TOKEN}`,
-      },
-      next: { revalidate: 300 },
-    }
-  );
-
-  if (!response.ok) {
-    throw new Error(`Contentful gallery request failed with status ${response.status}`);
-  }
-
-  const payload = await response.json();
-  const galleryEntry = payload?.items?.[0];
-  const linkedEntries = mapIncludes(payload?.includes?.Entry);
-  const linkedAssets = mapIncludes(payload?.includes?.Asset);
+function getGalleryAssets(galleryEntry, linkedAssets) {
   const imageLinks = galleryEntry?.fields?.images;
 
-  if (!galleryEntry || !Array.isArray(imageLinks) || imageLinks.length === 0) {
-    return null;
+  if (!Array.isArray(imageLinks) || imageLinks.length === 0) {
+    return [];
   }
 
-  const normalizedImages = imageLinks
-    .map((link, index) => {
-      if (link?.sys?.linkType === "Asset") {
-        const asset = linkedAssets.get(link?.sys?.id);
-        return normalizeContentfulGalleryAsset(asset, index);
-      }
-
-      const entry = linkedEntries.get(link?.sys?.id);
-      const assetId = getFirstAssetId(entry?.fields?.photo);
-      const asset = linkedAssets.get(assetId);
-
-      return normalizeContentfulGalleryImageEntry(entry, asset, index);
-    })
+  return imageLinks
+    .filter((link) => link?.sys?.linkType === "Asset")
+    .map((link) => linkedAssets.get(link?.sys?.id))
     .filter(Boolean);
-
-  return normalizedImages.length > 0 ? normalizedImages : null;
 }
 
 export async function getGalleryImages() {
-  try {
-    const contentfulImages = await fetchContentfulGalleryImages();
+  if (!CONTENTFUL_SPACE_ID || !CONTENTFUL_DELIVERY_TOKEN) {
+    console.warn("Contentful gallery is not configured. Returning an empty gallery.");
+    return [];
+  }
 
-    return contentfulImages ?? localGalleryImages;
+  try {
+    const query = new URLSearchParams({
+      content_type: "galleryPage",
+      "fields.slug": CONTENTFUL_GALLERY_SLUG,
+      include: "2",
+      limit: "1",
+    });
+
+    const response = await fetch(
+      `https://cdn.contentful.com/spaces/${CONTENTFUL_SPACE_ID}/environments/${CONTENTFUL_ENVIRONMENT}/entries?${query.toString()}`,
+      {
+        headers: {
+          Authorization: `Bearer ${CONTENTFUL_DELIVERY_TOKEN}`,
+        },
+        next: { revalidate: 300 },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Contentful gallery request failed with status ${response.status}`);
+    }
+
+    const payload = await response.json();
+    const galleryEntry = payload?.items?.[0];
+    const linkedAssets = mapIncludes(payload?.includes?.Asset);
+
+    if (!galleryEntry) {
+      console.warn(`No Contentful galleryPage entry found for slug "${CONTENTFUL_GALLERY_SLUG}".`);
+      return [];
+    }
+
+    return getGalleryAssets(galleryEntry, linkedAssets)
+      .map((asset, index) => normalizeContentfulGalleryAsset(asset, index))
+      .filter(Boolean);
   } catch (error) {
-    console.warn("Falling back to local gallery images.", error);
-    return localGalleryImages;
+    const detail = error instanceof Error ? error.message : "Unknown error";
+    console.warn(`Unable to fetch Contentful gallery. Returning an empty gallery. ${detail}`);
+    return [];
   }
 }

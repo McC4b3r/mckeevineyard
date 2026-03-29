@@ -19,7 +19,7 @@ The local dev server runs at [http://localhost:3000](http://localhost:3000).
 
 ## Contentful Gallery
 
-The gallery can now be sourced from Contentful with a local fallback during rollout.
+The gallery is sourced from Contentful.
 
 Set these environment variables to enable the Contentful-backed gallery:
 
@@ -43,8 +43,6 @@ For asset metadata:
 
 - use the asset `Title` as an internal editor-facing name
 - use the asset `Description` as the public alt text consumed by the site
-
-The app still supports the older `galleryImage` wrapper-entry model during transition, but new setup should use direct media assets on `galleryPage`.
 
 ## Structure
 

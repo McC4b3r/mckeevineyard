@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Sheet, SheetContent } from "@/src/components/ui/sheet";
 import Logo from "./Logo";
 import NavBarContainer from "./NavBarContainer";
-import MenuLinks from "./MenuLInks";
+import MenuLinks from "./MenuLinks";
 import MenuToggle from "./MenuToggle";
 
 export default function Navbar(props) {

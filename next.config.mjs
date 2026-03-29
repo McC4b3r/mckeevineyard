@@ -6,10 +6,6 @@ const nextConfig = {
         protocol: "https",
         hostname: "images.ctfassets.net",
       },
-      {
-        protocol: "https",
-        hostname: "d2gryjkdo4kdmg.cloudfront.net",
-      },
     ],
   },
 };
