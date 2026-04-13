@@ -39,6 +39,8 @@ Recommended Contentful setup:
 
 Create a single `galleryPage` entry with slug `main-gallery`, then upload or select the gallery photos directly in its `images` field. The gallery order on the site follows the order of the assets in that field.
 
+The `/gallery` route does not fall back to local photos. If Contentful returns no images, the page shows the gallery empty state instead.
+
 For asset metadata:
 
 - use the asset `Title` as an internal editor-facing name
@@ -56,5 +58,5 @@ For asset metadata:
 
 - The route structure from the Gatsby app was preserved: `/`, `/about`, `/gallery`, `/history`, `/events`, and `/contact`.
 - Chakra components were replaced with Tailwind classes and reusable UI primitives.
-- The gallery now uses local image imports and a Radix-powered dialog carousel.
+- The gallery is sourced from Contentful assets and displayed in a Radix-powered dialog carousel.
 - The contact form still uses Formspree, but now through the Next.js client app.

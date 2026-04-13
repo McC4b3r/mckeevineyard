@@ -112,7 +112,7 @@ export async function getGalleryImages() {
         headers: {
           Authorization: `Bearer ${CONTENTFUL_DELIVERY_TOKEN}`,
         },
-        next: { revalidate: 300 },
+        cache: "no-store",
       }
     );
 
